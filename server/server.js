@@ -3,7 +3,11 @@ const bodyParser = require('body-parser');
 
 const app = express();
 
+const api = require('./routes/app');
+
 app.use(bodyParser.json());
+
+app.use('/api', api);
 
 app.get("/", (req, res) => {
     res.send("Welcome home");
@@ -12,5 +16,5 @@ app.get("/", (req, res) => {
 const PORT = 3000;
 
 app.listen(PORT, () => {
-    console.log('App listening on port ' + PORT)
+    console.log('App listening on port ' + PORT);
 })
